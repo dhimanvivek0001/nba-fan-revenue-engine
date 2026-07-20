@@ -1,0 +1,30 @@
+# Phase 0-3: data generation & profiling
+faker==24.4.0
+pandas==2.2.1
+numpy==1.26.4
+ydata-profiling==4.7.0
+
+# Phase 4-5: warehouse & transformation
+duckdb==0.10.1
+dbt-core==1.7.13
+dbt-duckdb==1.7.3
+
+# Phase 6-7: analysis & ML
+scikit-learn==1.4.1.post1
+xgboost==2.0.3
+lightgbm==4.3.0
+shap==0.45.0
+prophet==1.1.5
+lifelines==0.28.0     # Kaplan-Meier survival analysis for CLV
+
+# Phase 9: streaming
+kafka-python==2.0.2
+
+# Phase 9-10: apps & API
+streamlit==1.32.2
+anthropic==0.25.0
+spacy==3.7.4
+
+# utilities
+python-dotenv==1.0.1
+sqlalchemy==2.0.29
