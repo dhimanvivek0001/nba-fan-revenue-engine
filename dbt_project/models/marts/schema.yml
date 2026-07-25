@@ -1,0 +1,73 @@
+version: 2
+
+models:
+  - name: dim_fan
+    description: "Canonical fan dimension — one row per resolved fan, enriched with season-ticket-holder attributes."
+    columns:
+      - name: fan_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_game
+    description: "Game dimension — one row per game in the synthetic season."
+    columns:
+      - name: game_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_date
+    description: "Calendar date spine, 2017-01-01 through 2026-12-31."
+    columns:
+      - name: date_day
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_ticket_sales
+    description: "One row per ticket transaction, fan-resolved via the Phase 4 identity map. Orphan game references excluded."
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: game_id
+        tests:
+          - relationships:
+              to: ref('dim_game')
+              field: game_id
+
+  - name: fact_concessions
+    description: "One row per concession transaction; fan_id populated only where loyalty-linked (~28% of rows)."
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: game_id
+        tests:
+          - relationships:
+              to: ref('dim_game')
+              field: game_id
+
+  - name: fact_engagement
+    description: "One row per email sent; fan_id populated where the recipient email matches a known fan."
+    columns:
+      - name: engagement_id
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_nps
+    description: "One row per NPS survey response; fan_id populated where respondent email is known (~70.1% of rows)."
+    columns:
+      - name: survey_id
+        tests:
+          - unique
+          - not_null
+      - name: game_id
+        tests:
+          - relationships:
+              to: ref('dim_game')
+              field: game_id
