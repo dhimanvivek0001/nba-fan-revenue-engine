@@ -1,0 +1,19 @@
+{
+  "test_auc": 0.977,
+  "n_accounts_scored": 8500,
+  "n_at_risk_threshold_60": 603,
+  "total_at_risk_dollars": 1826257.0,
+  "feature_importance": {
+    "total_spend": 0.4074130654335022,
+    "attendance_rate": 0.2637558877468109,
+    "recency_days": 0.05552196130156517,
+    "membership_tier_Platinum": 0.05488625541329384,
+    "membership_tier_Gold": 0.047983285039663315,
+    "membership_tier_Silver": 0.03347776085138321,
+    "email_open_rate": 0.03309609740972519,
+    "avg_spend_per_game": 0.028019163757562637,
+    "tenure_years": 0.02663348987698555,
+    "membership_tier_Bronze": 0.02553042583167553,
+    "emails_received": 0.023682650178670883
+  }
+}
