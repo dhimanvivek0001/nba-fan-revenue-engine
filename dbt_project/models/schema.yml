@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: stg_fans
+    description: "Deduplicated fan master — collapses duplicate registrations found in Phase 3."
+    columns:
+      - name: fan_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_ticketmaster_customers
+    description: "Normalized Ticketmaster customer records (name/email captured at checkout)."
+    columns:
+      - name: ticketmaster_customer_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_ticketmaster_transactions
+    description: "Cleaned ticket transactions — duplicates dropped, orphan games and null prices flagged."
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_micros_transactions
+    description: "Cleaned concession transactions — refund/void amounts flagged."
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_games
+    description: "Passthrough game schedule."
+    columns:
+      - name: game_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_season_ticket_accounts
+    description: "Passthrough season ticket account records."
+    columns:
+      - name: sth_account_id
+        tests:
+          - unique
+          - not_null
+      - name: fan_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_fans')
+              field: fan_id
+
+  - name: int_fan_identity_map
+    description: "Core identity-resolution model: resolves Ticketmaster customer IDs to canonical fan_id via email match, falling back to name match."
+    columns:
+      - name: ticketmaster_customer_id
+        tests:
+          - unique
+          - not_null
+      - name: fan_id
+        tests:
+          - relationships:
+              to: ref('stg_fans')
+              field: fan_id

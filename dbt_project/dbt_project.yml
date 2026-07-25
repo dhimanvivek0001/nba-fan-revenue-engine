@@ -1,0 +1,24 @@
+name: 'nba_fan_engine'
+version: '1.0.0'
+config-version: 2
+
+profile: 'nba_fan_engine'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  nba_fan_engine:
+    staging:
+      +materialized: view
+      +schema: staging
+    intermediate:
+      +materialized: table
+      +schema: intermediate

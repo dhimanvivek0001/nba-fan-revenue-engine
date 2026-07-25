@@ -4,3 +4,11 @@ __pycache__/
 .env
 *.log
 .DS_Store
+
+data/raw/*.csv
+data/warehouse/*.duckdb
+data/profiling_reports/*.html
+
+dbt_project/target/
+dbt_project/logs/
+dbt_project/dbt_packages/

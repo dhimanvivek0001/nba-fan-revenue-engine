@@ -1,0 +1,7 @@
+nba_fan_engine:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../data/warehouse/nba_fan_engine.duckdb'
+      threads: 4
