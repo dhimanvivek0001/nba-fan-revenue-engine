@@ -1,0 +1,8 @@
+{
+  "spend_model_cv_r2": 0.927,
+  "spend_model_mae": 214.0,
+  "n_accounts": 8500,
+  "total_portfolio_clv": 539824309.0,
+  "avg_clv": 63509.0,
+  "max_horizon_years_cap": 12
+}
