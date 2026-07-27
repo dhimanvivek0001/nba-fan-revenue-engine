@@ -65,12 +65,12 @@ with DAG(
 
     dbt_run = BashOperator(
         task_id="dbt_run",
-        bash_command=f"cd {PROJECT_ROOT}/dbt_project && DBT_PROFILES_DIR=. dbt run",
+        bash_command=f"cd {PROJECT_ROOT}/dbt_project && rm -rf target && DBT_PROFILES_DIR=. dbt run --no-partial-parse",
     )
 
     dbt_test = BashOperator(
         task_id="dbt_test",
-        bash_command=f"cd {PROJECT_ROOT}/dbt_project && DBT_PROFILES_DIR=. dbt test",
+        bash_command=f"cd {PROJECT_ROOT}/dbt_project && DBT_PROFILES_DIR=. dbt test --no-partial-parse",
     )
 
     generate_synthetic_data >> load_bronze >> dbt_run >> dbt_test
