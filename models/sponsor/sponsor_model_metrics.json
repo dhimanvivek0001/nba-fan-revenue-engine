@@ -1,0 +1,9 @@
+{
+  "n_segments": 6,
+  "archetypes_scored": [
+    "premium_luxury_fit",
+    "mass_market_beverage_fit",
+    "digital_fintech_fit"
+  ],
+  "data_limitation": "No age/income/household data and no real geographic clustering in this synthetic dataset \u2014 a demographic or local-reach archetype was deliberately not built rather than faked."
+}
