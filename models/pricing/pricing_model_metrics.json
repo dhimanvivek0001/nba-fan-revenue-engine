@@ -1,0 +1,8 @@
+{
+  "demand_model_r2": -0.06,
+  "demand_model_mae": 0.077,
+  "n_games": 82,
+  "n_sections_priced": 35,
+  "backtest_correlation": 0.447,
+  "estimated_revenue_left_on_table": 657935.0
+}
