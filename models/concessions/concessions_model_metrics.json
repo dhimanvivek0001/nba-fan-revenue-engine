@@ -1,0 +1,18 @@
+{
+  "mape_pct": 8.5,
+  "n_games": 82,
+  "n_stands": 24,
+  "n_game_stand_rows": 1968,
+  "top_feature_importances": {
+    "final_attendance": 0.8319797378486038,
+    "game_month": 0.06635132189231027,
+    "day_of_week_Sunday": 0.03897895924891547,
+    "is_weekend": 0.016634542859360057,
+    "day_of_week_Monday": 0.015893585156523525,
+    "day_of_week_Friday": 0.009203844916728888,
+    "day_of_week_Wednesday": 0.007926684553924245,
+    "day_of_week_Tuesday": 0.0039154096883061585,
+    "day_of_week_Thursday": 0.0027326198145587173,
+    "day_of_week_Saturday": 0.0017452712573519016
+  }
+}
